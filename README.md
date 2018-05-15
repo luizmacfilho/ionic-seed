@@ -17,7 +17,7 @@ This seed is using Ionic 3, Angular 5 and NgRx 5.
 
 ### Requirements
 
-Node >= 8.0
+Node >= 8.0 <br>
 NPM >= 5 or Yarn
 
 ### Installing
@@ -32,46 +32,46 @@ Execute the following steps to start a new project:
 
 In ionic-seed folder:
 
-1. Run `ionic serve` to start init
+1. Run `ionic serve` to init project
 2. Go to http://0.0.0.0:3000 or http://localhost:3000 in your browser
 
 ## File Structure
 
 ```
 ionic-seed/
- ├──config/                        * configuration files should be here
+ ├──config/                        * configuration files are saved here
  │   └──webpack.config.js          * webpack config file
  │
  ├──resorces/                      * ionic resources folder
  |
  ├──src/                           * source files that will be compiled to javascript
- |   ├──index.html                 *
- |   ├──manifest.json              *
- |   ├──service-worker.js          *
+ |   ├──index.html                 * index
+ |   ├──manifest.json              * manifest config for PWA
+ |   ├──service-worker.js          * service woriker config
  │   │
- │   ├──actions/                   *
+ │   ├──actions/                   * ngrx actions are saved here
  │   │
- │   ├──app/                       *
+ │   ├──app/                       * main app config
  │   │
- │   ├──assets/                    *
+ │   ├──assets/                    * static files aresaved here
  │   │
- │   ├──effects/                   *
+ │   ├──effects/                   * ngrx effect are saved here
  │   |
- │   ├──environments/              *
+ │   ├──environments/              * environment variables files are saved here
  │   |
- │   ├──models/                    *
+ │   ├──models/                    * interfaces are saved here
  │   |
- │   ├──pages/                     *
+ │   ├──pages/                     * project pages folder
  │   |
- │   ├──reducers/                  *
+ │   ├──reducers/                  * ngrx reducers are saved here
  │   |
- |   └──theme/                     *
+ |   └──theme/                     * ionic theme stylesheets and sass variables
  │
- ├──config.xml                     *
- ├──ionic.config.json              *
- ├──package.json                   *
- ├──tsconfig.json                  *
- └──tslint.js                      *
+ ├──config.xml                     * apache cordova config file
+ ├──ionic.config.json              * ionic config file
+ ├──package.json                   * npm dependencies
+ ├──tsconfig.json                  * typescrypt config
+ └──tslint.js                      * typescrypt lint rules
 
 ```
 
