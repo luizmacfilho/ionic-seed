@@ -1,21 +1,38 @@
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Component } from '@angular/core';
-import { NavController, IonicPage } from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+import { IonicPage } from 'ionic-angular';
 import { AppState } from '@models/state.model';
+import { User } from '@models/user.model';
 import * as userActions from '@actions/user.actions';
 
 @IonicPage()
 @Component({
     selector: 'page-home',
-    templateUrl: 'home.html'
+    templateUrl: 'home.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePage {
 
+    public user$: Observable<User>;
+    public user: User = {
+        firstName: '',
+        lastName: ''
+    };
+
     constructor(
-        private navCtrl: NavController,
         private store: Store<AppState>,
     ) {
-        this.store.dispatch(new userActions.SetUser({ id: 1, name: 'Luiz'}));
+        this.user$ = this.store.select('user');
+    }
+
+    public setUser() {
+        this.store.dispatch(new userActions.SetUser(this.user));
+        this.clearUser();
+    }
+
+    private clearUser() {
+        this.user = { firstName: '', lastName: '' };
     }
 
 }

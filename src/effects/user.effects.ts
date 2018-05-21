@@ -24,4 +24,13 @@ export class UserEffects {
             return new userActions.SetUserSuccess(user);
         })
         .catch(err => of(new userActions.SetUserFail({ error: err.message })));
+
+    @Effect() addUserToHistory: Observable<Action> = this.actions
+        .ofType(userActions.SET_USER_SUCCESS)
+        .map((action: userActions.SetUserSuccess) => action.payload)
+        .map((user) => {
+            return new userActions.AddUserToHistory(
+                { firstName: user.firstName, lastName: user.lastName}
+            );
+        });
 }

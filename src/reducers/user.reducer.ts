@@ -19,6 +19,10 @@ export function userReducer(state: User, action: Action) {
         case UserActions.SET_USER_SUCCESS:
             return { ...state, loading: false };
 
+        case UserActions.ADD_USER_TO_HISTORY:
+            state.history = [action.payload, ...state.history || []];
+            return { ...state };
+
         default:
             return state;
 
