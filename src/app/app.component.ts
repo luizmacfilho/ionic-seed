@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     templateUrl: 'app.html'
@@ -12,14 +13,24 @@ export class MyApp {
 
     public rootPage: any = 'HomePage';
     public pages: Array<{title: string, component: any}>;
+    private defaultLang: string = 'en-US';
+    private langs: string[] = [
+        'en-US', 'pt-BR'
+    ];
 
-    constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+    constructor(
+        public platform: Platform, 
+        public statusBar: StatusBar, 
+        public splashScreen: SplashScreen,
+        public translate: TranslateService,
+    ) {
         this.initializeApp();
+        this.languageConfig();
 
         // used for an example of ngFor and navigation
         this.pages = [
-            { title: 'Home', component: 'HomePage' },
-            { title: 'History', component: 'HistoryPage' },
+            { title: 'HOME', component: 'HomePage' },
+            { title: 'HISTORY', component: 'HistoryPage' },
         ];
 
     }
@@ -38,4 +49,12 @@ export class MyApp {
         // we wouldn't want the back button to show in this scenario
         this.nav.setRoot(page.component);
     }
+
+    private languageConfig() {
+        let browserLang = this.translate.getBrowserCultureLang();
+        this.translate.addLangs(this.langs);
+        this.translate.setDefaultLang(this.defaultLang);
+        this.translate.use(browserLang);
+    }
+
 }
