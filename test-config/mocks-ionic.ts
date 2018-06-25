@@ -1,5 +1,8 @@
+import { TranslateService } from '@ngx-translate/core';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 export class PlatformMock {
   public ready(): Promise<string> {
@@ -112,4 +115,28 @@ export class NavMock {
 
 export class DeepLinkerMock {
 
+}
+
+export class TranslateServiceMock extends TranslateService {
+  
+  private browserCultureLang: string = 'en-US';
+
+  getBrowserCultureLang(): string {
+    return this.browserCultureLang;
+  }
+  addLangs(langs: string[]): void {
+    this.langs = langs;
+  }
+  setDefaultLang(lang: string): void {
+    this.defaultLang = lang;
+  }
+  use(lang: string): Observable<any> {
+    return Observable.of(lang);
+  }
+}
+
+export class TranslateLoaderMock  {
+  getTranslation(lang: string): Observable<any> {
+    return Observable.of({});
+  }
 }

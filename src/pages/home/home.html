@@ -3,26 +3,26 @@
         <button ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
         </button>
-        <ion-title>Home</ion-title>
+        <ion-title>{{ 'HOME' | translate }}</ion-title>
     </ion-navbar>
 </ion-header>
 
 <ion-content padding>
     <form>
         <ion-item no-padding>
-            <ion-label floating>First name</ion-label>
+            <ion-label floating>{{ 'FIRST_NAME' | translate }}</ion-label>
             <ion-input type="text" [(ngModel)]="user.firstName" name="firstName" value=""></ion-input>
         </ion-item>
 
         <ion-item no-padding>
-            <ion-label floating>Last name</ion-label>
+            <ion-label floating>{{ 'LAST_NAME' | translate }}</ion-label>
             <ion-input type="text" [(ngModel)]="user.lastName" name="lastName" value=""></ion-input>
         </ion-item>
 
-        <button margin-top ion-button full type="submit" (click)="setUser()" [disabled]="!(user.firstName && user.lastName)">Set user</button>
+        <button margin-top ion-button full type="submit" (click)="setUser()" [disabled]="!(user.firstName && user.lastName)">{{ 'SET_USER' | translate }}</button>
     </form>
 
     <div margin-top>
-        <span>Hello, {{(user$ | async)?.firstName}} {{(user$ | async)?.lastName}}!</span>
+        <span>{{ 'HELLO' | translate }}, {{(user$ | async)?.firstName}} {{(user$ | async)?.lastName}}!</span>
     </div>
 </ion-content>
