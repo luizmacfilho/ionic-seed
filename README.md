@@ -42,6 +42,8 @@ ionic-seed/
  ├──config/                        * configuration files are saved here
  │   └──webpack.config.js          * webpack config file
  │
+ ├──e2e/                           * e2e test config folder
+ │
  ├──resorces/                      * ionic resources folder
  |
  ├──src/                           * source files that will be compiled to javascript
@@ -66,6 +68,8 @@ ionic-seed/
  │   ├──reducers/                  * ngrx reducers are saved here
  │   |
  |   └──theme/                     * ionic theme stylesheets and sass variables
+ |
+ ├──test-config/                   * unit test config folder
  │
  ├──config.xml                     * apache cordova config file
  ├──ionic.config.json              * ionic config file
@@ -81,6 +85,7 @@ ionic-seed/
 - [NgRx](https://github.com/ngrx/platform) - Official NgRx repo
 - [Angular](https://angular.io/docs) - Official Angular docs
 - [Environment variables](https://github.com/gshigeto/ionic-environment-variables) - A repository used to explain how environment variables work
+- [Test Configuration](https://leifwells.github.io/2017/08/27/testing-in-ionic-configure-existing-projects-for-testing/) - How to configure unit and a2a tests
 
 ## License
 [MIT](/LICENSE)
