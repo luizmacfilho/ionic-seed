@@ -19,8 +19,8 @@ export class MyApp {
     ];
 
     constructor(
-        public platform: Platform, 
-        public statusBar: StatusBar, 
+        public platform: Platform,
+        public statusBar: StatusBar,
         public splashScreen: SplashScreen,
         public translate: TranslateService,
     ) {

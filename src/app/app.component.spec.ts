@@ -1,46 +1,22 @@
-import { async, TestBed } from '@angular/core/testing';
-import { IonicModule, Platform } from 'ionic-angular';
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
-import { HttpClientModule } from '@angular/common/http';
-
+import { TranslateService } from '@ngx-translate/core';
+import { Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
+import { PlatformMock, SplashScreenMock, StatusBarMock } from 'ionic-mocks';
 import { MyApp } from './app.component';
-import {
-  PlatformMock,
-  StatusBarMock,
-  SplashScreenMock,
-  TranslateServiceMock,
-  TranslateLoaderMock
-} from '../../test-config/mocks-ionic';
+import { TranslateServiceMock } from '../../test-config/mocks-ionic';
 
 describe('MyApp Component', () => {
-  let fixture;
   let component;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [MyApp],
-      imports: [
-        IonicModule.forRoot(MyApp),
-        HttpClientModule,
-        TranslateModule.forRoot({
-          loader: {provide: TranslateLoader, useClass: TranslateLoaderMock}
-        }),
-      ],
-      providers: [
-        { provide: TranslateService, useClass: TranslateServiceMock },
-        { provide: StatusBar, useClass: StatusBarMock },
-        { provide: SplashScreen, useClass: SplashScreenMock },
-        { provide: Platform, useClass: PlatformMock }
-      ]
-    })
-  }));
-
   beforeEach(() => {
-    fixture = TestBed.createComponent(MyApp);
-    component = fixture.componentInstance;
+    let translateService: TranslateService = TranslateServiceMock.instance();
+    let statusBar: StatusBar = StatusBarMock.instance();
+    let splashScreen: SplashScreen = SplashScreenMock.instance();
+    let platform: Platform = PlatformMock.instance();
+
+    component = new MyApp(platform, statusBar, splashScreen, translateService);
+
   });
 
   it('should be created', () => {
