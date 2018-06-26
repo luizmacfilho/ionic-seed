@@ -49,12 +49,22 @@ module.exports = function(config) {
       fixWebpackSourcePaths: true
     },
 
+    plugins: [
+      require('karma-jasmine'),
+      require('karma-webpack'),
+      require('karma-sourcemap-loader'),
+      require('karma-chrome-launcher'),
+      require('karma-phantomjs-launcher'),
+      require('karma-jasmine-html-reporter'),
+      require('karma-coverage-istanbul-reporter'),
+    ],
+
     reporters: config.coverage ? ['kjhtml', 'dots', 'coverage-istanbul'] : ['kjhtml', 'dots'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS', 'Chrome'],
     singleRun: false
   };
 

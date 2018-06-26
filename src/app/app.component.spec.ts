@@ -44,7 +44,7 @@ describe('MyApp Component', () => {
   });
 
   it('should be created', () => {
-    expect(component instanceof MyApp).toBe(true);
+    expect(component instanceof MyApp).toBeTruthy();
   });
 
   it('should have two pages', () => {
