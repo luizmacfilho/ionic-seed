@@ -21,7 +21,7 @@ module.exports = function(config) {
       '/assets/': '/base/src/assets/'
     },
     preprocessors: {
-      './test-config/karma-test-shim.js': ['webpack']
+      './test-config/karma-test-shim.js': ['webpack', 'sourcemap']
     },
     webpack: webpackConfig,
     webpackMiddleware: {
